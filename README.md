@@ -7,10 +7,10 @@ Download Project Using Git clone.
 Install requirements using requirements.txt
 
 
-Run python addusers.py which create db and will add admin user / countries sample entries.
+Run python addusers.py which will create db and will add admin user / countries sample data.
 
 
 then, run app.py
 
 
-JS and CSS files are download and kept in static use if links stopped working.
+JS and CSS files are downloaded and kept in static folder, use if links stopped working.
