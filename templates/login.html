@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+{% if session['logged_in'] %}
+<p>You are logged in </p>
+
+{% else %}
+<div class="jumbotron">
+	<div class="login">
+		<div class="login-form">
+			<div class="app-title">
+				<form class="form-signin" action="{{ url_for('login')}}" method="post">
+					<label for="inputemail" class="sr-only">Email Address</label>
+					<input type="email" name="inputEmail" id="inputEmail" class="form-control" placeholder="Email Address" required autofocus>
+					<label for="inputPassword" class="sr-only">Password</label>
+					<input type="password" name="inputPassword" id="inputPassword" class="form-control" placeholder="Password" required> 
+					<button id="btnSignIn" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>OneWeb</title>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="/static/css/style.css" type="text/css">
+    <link rel="stylesheet" href="/static/css/bootstrap-3.3.6.min.css" type="text/css">
+
+    <link href="https://cdn.jsdelivr.net/npm/gijgo@1.9.6/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+    <style>
+        .form-row { display: flex; margin-bottom: 29px; }
+        .form-row:last-child { margin-bottom: 0px; }
+        .margin-top-10 { margin-top: 10px; }
+        .float-left { float: left; }
+        .float-right { float: right; }
+        .display-inline { display: inline; }
+        .display-inline-block { display: inline-block; }
+        .width-200 { width: 200px; }
+        .clear-both { clear: both; }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gijgo@1.9.6/js/gijgo.min.js" type="text/javascript"></script>
+
+  </head>
+
+  <body>
+
+  <div class="bootstrap-iso">
+    <div class="container">
+      <div class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills pull-right">
+            {% if session['logged_in'] %}
+               <li role="presentation"><a>Welcome, {{ session['inputEmail'].capitalize() }}</a> </li>
+               <li role="presentation"><a href="{{ url_for('home') }}">Home</a></li>
+               <li role="presentation"><a href="{{ url_for('logout') }}">Logout</a></li>
+            {% else %}
+            <li role="presentation"><a href="{{ url_for('login') }}">Login</a></li>
+            {% endif %}
+            <li role="presentation"><a href="{{ url_for('about') }}">About</a></li>
+            <li role="presentation"><a href="{{ url_for('contact') }}">Contact</a></li>
+          </ul>
+        </nav>
+        <h3 class="text-muted">OneWeb</h3>
+      </div>
+
+      {% block content %}
+      {% endblock %}
+
+      <footer class="footer">
+        <p>© 2018 OneWeb Inc.</p>
+      </footer>
+
+    </div>
+  </div>
+
+  </body>
+</html>
